@@ -1,5 +1,5 @@
 # Contacts Records
-Finding potential duplicates within an uploaded CSV file using Double Metaphone tokens.
+Finding potential duplicates within an uploaded CSV file using Metaphone tokens.
 
 ## Running the app
 This is a Spring Boot app with a React client app bundled with it. To run, simply use

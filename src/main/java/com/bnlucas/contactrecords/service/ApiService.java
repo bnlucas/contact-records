@@ -20,7 +20,7 @@ public class ApiService {
         List<Contact> contacts = CsvReader.readContactFile(multipartFile);
         List<Contact> potentialDuplicateContacts = new ArrayList<>();
 
-        // First, identify all contacts that could be potential duplicates using the double metaphone tokens of
+        // First, identify all contacts that could be potential duplicates using the metaphone tokens of
         // first_name, last_name, street name (street number removed), city, state for phonetically identical records
         List<Contact> hashCodeDuplicates = getDuplicatesByHashCode(contacts);
         contacts.removeAll(hashCodeDuplicates);
@@ -31,7 +31,7 @@ public class ApiService {
         contacts.removeAll(emailDuplicates);
         potentialDuplicateContacts.addAll(emailDuplicates);
 
-        // This could possibly be refined further, depnding on how specific you want to get. You could check matching
+        // This could possibly be refined further, depending on how specific you want to get. You could check matching
         // addresses, phone numbers, ect. But you could possibly run into having records of Jane and John Smith that
         // share the same address and phone number which are not duplicates.
 

@@ -2,14 +2,13 @@ package com.bnlucas.contactrecords.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.commons.codec.language.DoubleMetaphone;
 import org.apache.commons.codec.language.Metaphone;
 
 import java.util.Objects;
 
 public class Contact {
 
-    private static final Metaphone doubleMetaphone = new Metaphone();
+    private static final Metaphone metaphone = new Metaphone();
 
     private long id;
 
@@ -73,7 +72,7 @@ public class Contact {
 
     public Contact setFirstName(String firstName) {
         this.firstName = firstName;
-        this.encodedFirstName = doubleMetaphone.encode(firstName);
+        this.encodedFirstName = metaphone.encode(firstName);
 
         return this;
     }
@@ -88,7 +87,7 @@ public class Contact {
 
     public Contact setLastName(String lastName) {
         this.lastName = lastName;
-        this.encodedLastName = doubleMetaphone.encode(lastName);
+        this.encodedLastName = metaphone.encode(lastName);
 
         return this;
     }
@@ -103,7 +102,7 @@ public class Contact {
 
     public Contact setCompany(String company) {
         this.company = company;
-        this.encodedCompany = doubleMetaphone.encode(company);
+        this.encodedCompany = metaphone.encode(company);
 
         return this;
     }
@@ -129,8 +128,8 @@ public class Contact {
         this.addressOne = addressOne;
 
         if (addressOne != null) {
-            // Remove all integers before encoding to make more generic double metaphone token
-            this.encodedAddressOne = doubleMetaphone.encode(addressOne.replaceAll("\\d",""));
+            // Remove all integers before encoding to make more generic metaphone token
+            this.encodedAddressOne = metaphone.encode(addressOne.replaceAll("\\d",""));
         }
 
         return this;
@@ -164,7 +163,7 @@ public class Contact {
 
     public Contact setCity(String city) {
         this.city = city;
-        this.encodedCity = doubleMetaphone.encode(city);
+        this.encodedCity = metaphone.encode(city);
 
         return this;
     }
@@ -179,7 +178,7 @@ public class Contact {
 
     public Contact setStateLong(String stateLong) {
         this.stateLong = stateLong;
-        this.encodedStateLong = doubleMetaphone.encode(stateLong);
+        this.encodedStateLong = metaphone.encode(stateLong);
         return this;
     }
 
