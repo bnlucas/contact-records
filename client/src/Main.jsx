@@ -27,7 +27,7 @@ class Main extends React.Component {
             <React.Fragment>
                 <FileUpload setContacts={this.setContacts} />
                 <ContactsTable title="Potential Duplicates" data={duplicates} />
-                <ContactsTable title="Unique:" data={unique} />
+                <ContactsTable title="Unique" data={unique} />
             </React.Fragment>
         );
     }

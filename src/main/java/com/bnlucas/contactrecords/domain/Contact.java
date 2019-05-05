@@ -3,12 +3,13 @@ package com.bnlucas.contactrecords.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.codec.language.DoubleMetaphone;
+import org.apache.commons.codec.language.Metaphone;
 
 import java.util.Objects;
 
 public class Contact {
 
-    private static final DoubleMetaphone doubleMetaphone = new DoubleMetaphone();
+    private static final Metaphone doubleMetaphone = new Metaphone();
 
     private long id;
 
