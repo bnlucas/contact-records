@@ -4,7 +4,7 @@ Finding potential duplicates within an uploaded CSV file using Metaphone tokens.
 ## Running the app
 This is a Spring Boot app with a React client app bundled with it. To run, simply use
 ```text
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
 This in turn runs the following to start up the React app:
