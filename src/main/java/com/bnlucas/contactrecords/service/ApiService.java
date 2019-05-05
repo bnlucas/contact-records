@@ -46,24 +46,27 @@ public class ApiService {
     }
 
     private List<Contact> getSortedList(List<Contact> contacts) {
+        // This is not a functional need. This is used for better presentation in the UI.
         return new HashSet<>(contacts).stream()
                 .sorted(Comparator.comparing(Contact::getId))
                 .collect(Collectors.toList());
     }
 
     private List<Contact> getDuplicatesByHashCode(List<Contact> contacts) {
-        List<Object> duplicates = getDuplicatesByKey(Contact::hashCode, contacts); // List of duplicate hashCodes
+        // List of duplicate hashCodes
+        List<Object> duplicates = getDuplicatesByKey(Contact::hashCode, contacts);
 
-        // Only return Contact records that match the duplicated key
+        // Only return Contact records that match the duplicated hashCodes
         return contacts.stream()
                 .filter(contact -> duplicates.contains(contact.hashCode()))
                 .collect(Collectors.toList());
     }
 
     private List<Contact> getDuplicatesByEmail(List<Contact> contacts) {
-        List<Object> duplicates = getDuplicatesByKey(Contact::getEmail, contacts); // List of duplicate email addresses
+        // List of duplicate email addresses
+        List<Object> duplicates = getDuplicatesByKey(Contact::getEmail, contacts);
 
-        // Only return Contact records that match the duplicated key
+        // Only return Contact records that match the duplicated email addresses
         return contacts.stream()
                 .filter(contact -> duplicates.contains(contact.getEmail()))
                 .collect(Collectors.toList());
