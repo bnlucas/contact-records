@@ -2,6 +2,7 @@ import React from 'react';
 import JsonTable from 'ts-react-json-table';
 
 import FileUpload from './FileUpload';
+import ContactsTable from './ContactsTable';
 
 class Main extends React.Component {
     constructor(props) {
@@ -25,12 +26,8 @@ class Main extends React.Component {
         return (
             <React.Fragment>
                 <FileUpload setContacts={this.setContacts} />
-                <div style={{ margin: "10px 0", }}>
-                    <JsonTable rows={duplicates} columns={["id", "first_name", "last_name", "company", "email", "address1", "address2", "zip", "city", "state_long", "state", "phone"]} />
-                </div>
-                <div style={{ margin: "10px 0", }}>
-                    <JsonTable rows={unique} columns={["id", "first_name", "last_name", "company", "email", "address1", "address2", "zip", "city", "state_long", "state", "phone"]} />
-                </div>
+                <ContactsTable title="Potential Duplicates" data={duplicates} />
+                <ContactsTable title="Unique:" data={unique} />
             </React.Fragment>
         );
     }

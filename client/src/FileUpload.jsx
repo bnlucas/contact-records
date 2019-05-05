@@ -26,13 +26,9 @@ class FileUpload extends React.Component {
     render() {
         return (
             <form onSubmit={this.uploadFile}>
-                <div>
-                    <input ref={(ref) => { this.uploadInput = ref; }} type="file" />
-                </div>
+                <input ref={(ref) => { this.uploadInput = ref; }} type="file" />
                 <br />
-                <div>
-                    <button>Upload</button>
-                </div>
+                <button>Upload</button>
             </form>
         );
     }
